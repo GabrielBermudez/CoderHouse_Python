@@ -1,25 +1,14 @@
-def año_bisiesto(year):
-    if((year % 4 == 0) and (year % 400 == 0 or year % 100)):
-        print(f"El año {year} es bisiesto")
+def recortar(numero_recortar, limite_inferior, limite_superior):
+    if(numero_recortar < limite_inferior):
+        return limite_inferior
     
+    elif(numero_recortar > limite_superior):
+        return limite_superior
+
     else:
-        print(f"El año {year} no es bisiesto")
-
-
-def main():
-    isRunning = True;
-
-    while(isRunning):
-        year = input("Ingrese un año (-1 para finalizar): ")
+        return numero_recortar
         
-        if(year.isnumeric()):
-            año_bisiesto(int(year))
-
-        elif(year == "-1"):
-            isRunning = False
-            print("Saliendo...")
-            
-        else:
-            print("Debe ingresar un valor que sea numerico.")
+def main():
+    print(recortar(15, 0, 10))
 
 main()
