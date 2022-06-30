@@ -1,0 +1,29 @@
+{% extends "AppCoder/layout.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+    <div class="d-flex justify-content-center">
+        <h1>Registrar Profesor</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <form action="" method="POST">{% csrf_token %}
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+            <div class="d-flex justify-content-center mt-3">
+                <input type="submit", value="Enviar" class="btn btn-primary">
+                <a href="leerProfesores" class="btn btn-success" style="margin-left:10px"> Lista de Profesores</a>
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}

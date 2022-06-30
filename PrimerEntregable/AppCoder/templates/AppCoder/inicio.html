@@ -1,0 +1,39 @@
+{% extends "AppCoder/layout.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+  
+    <div class="d-flex justify-content-center mt-4">
+        <h3>Buscar camada:  </h3>
+        <form action="/AppCoder/buscar/" method="GET">
+            <input type="number" name="camada" id="camada">
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+
+    
+    <div class="d-flex justify-content-center">
+        {% if cursos %}
+
+        <p>Estamos buscando el: {{camada}}</p>
+
+        <ul>
+        {% for curso in cursos %}
+            <li> {{curso.nombre}} </li>
+            <li> {{curso.camada}} </li>
+        {% endfor %}
+
+        </ul>
+
+        {% else %}
+        <p>No hay datos con esa descripción.</p>
+
+        {% endif %}
+
+        <p style="color: red;">{{respuesta}}</p>
+ 
+    </div>
+   
+
+{% endblock %}
